@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>MONSAFE | Hult Prize Project</title>
 
-  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,26 +12,26 @@
 <nav>
   <div class="logo">🛡️ MONSAFE</div>
   <ul>
-    <li>Home</li>
-    <li>Features</li>
-    <li>Contact</li>
-    <li>Pricing</li>
+    <li onclick="goHome()">Home</li>
+    <li onclick="showFeatures()">Features</li>
+    <li onclick="showContact()">Contact</li>
+    <li onclick="showPricing()">Pricing</li>
   </ul>
-  <div class="btn-start">Get Started</div>
+  <div class="btn-start" onclick="goHome()">Get Started</div>
 </nav>
 
 <section class="hero">
   <div class="hero-box">
-    <div class="hero-title">Smart GPS Safety Platform</div>
-    <div class="hero-sub">Protección en tiempo real para personas vulnerables</div>
+    <h1 class="hero-title">Smart GPS Safety Platform</h1>
+    <p class="hero-sub">Protección en tiempo real para personas vulnerables</p>
 
     <div class="dashboard">
 
       <!-- SIDEBAR -->
-      <div class="sidebar">
+      <aside class="sidebar">
         <div class="user-card">
           <strong>María González</strong>
-          <span class="log">Adulto mayor • Ecuador</span>
+          <span>Adulto mayor • Ecuador</span>
         </div>
 
         <div class="menu">
@@ -42,16 +39,17 @@
           <a onclick="showSection('historial',this)">Historial</a>
           <a onclick="showSection('config',this)">Configuración</a>
         </div>
-      </div>
+      </aside>
 
       <!-- MAIN -->
-      <div class="main">
+      <main class="main">
         <div class="status">
           <h2>Estado del sistema</h2>
           <span id="systemStatus">PROTEGIDO</span>
         </div>
 
-        <div id="gps" class="section">
+        <!-- GPS -->
+        <section id="gps" class="section">
           <div class="grid">
             <div class="card">
               <h3>Ubicación en tiempo real</h3>
@@ -66,13 +64,41 @@
               <button class="btn-alert" onclick="enviarAlerta()">Alerta SOS</button>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div id="historial" class="section hidden">
+        <!-- HISTORIAL -->
+        <section id="historial" class="section hidden">
           <div class="card">
-            <h3>Historial</h3>
-            <div id="historyLog" class="log">Sin eventos registrados.</div>
+            <h3>Historial de eventos</h3>
+            <div id="historyLog">Sin eventos registrados.</div>
           </div>
-        </div>
+        </section>
 
-        <div id="config" clas
+        <!-- CONFIG -->
+        <section id="config" class="section hidden">
+          <div class="card">
+            <h3>Configuración</h3>
+            <p>Frecuencia GPS: 5s<br>Contacto emergencia: +593 99 999 9999</p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button onclick="closeModal()">Aceptar</button>
+  </div>
+</div>
+
+<!-- GOOGLE MAPS (PON TU API KEY REAL) -->
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
