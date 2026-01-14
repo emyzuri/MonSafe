@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MONSAFE | Hult Prize Project</title>
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>MONSAFE <small>| Hult Prize Project</small></h1>
+    <span id="systemStatus">Sistema activo</span>
+</header>
+
+<div class="layout">
+    <div class="sidebar">
+        <h3>Panel</h3>
+        <div class="menu">
+            <a class="active" onclick="showSection('dashboard',this)">Dashboard</a>
+            <a onclick="showSection('gps',this)">Ubicación GPS</a>
+            <a onclick="showSection('historial',this)">Historial</a>
+            <a onclick="showSection('alertas',this)">Alertas</a>
+            <a onclick="showSection('config',this)">Configuración</a>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="section">
+            <div class="status-card">
+                <div class="status-icon">✔</div>
+                <div>
+                    <h2>Usuario protegido</h2>
+                    <p>MONSAFE está monitoreando el collar en tiempo real</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GPS -->
+        <div id="gps" class="section hidden">
+            <div class="grid">
+                <div class="card">
+                    <h3>Ubicación en tiempo real</h3>
+                    <div id="map"></div>
+                    <p>Latitud: <span id="lat">-0.1807</span> | Longitud: <span id="lng">-78.4678</span></p>
+                </div>
+
+                <div class="card actions">
+                    <h3>Acciones de seguridad</h3>
+                    <button class="btn-move" onclick="simularMovimiento()">Simular movimiento</button>
+                    <button class="btn-zone" onclick="zonaSegura()">Activar zona segura</button>
+                    <button class="btn-alert" onclick="enviarAlerta()">Enviar alerta SOS</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historial -->
+        <div id="historial" class="section hidden">
+            <div class="card">
+                <h3>Historial de eventos</h3>
+                <div id="historyLog" class="log">Sin eventos registrados.</div>
+            </div>
+        </div>
+
+        <!-- Alertas -->
+        <div id="alertas" class="section hidden">
+            <div class="card">
+                <h3>Centro de alertas</h3>
+                <p class="log">No hay alertas activas.</p>
+            </div>
+        </div>
+
+        <!-- Config -->
+        <div id="config" class="section hidden">
+            <div class="card">
+                <h3>Configuración</h3>
+                <p class="log">
+                    Sensibilidad GPS: Alta<br>
+                    Frecuencia de actualización: 5s
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>MONSAFE © 2026 – Plataforma de seguridad inteligente</footer>
+
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
+
+<!-- JS -->
+<script src="app.js"></script>
+</body>
+</html>
