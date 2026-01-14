@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>MONSAFE | Hult Prize Project</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,34 +20,38 @@
     <li>Contact</li>
     <li>Pricing</li>
   </ul>
-  <button class="btn-start">Get Started</button>
+  <div class="btn-start">Get Started</div>
 </nav>
 
 <section class="hero">
   <div class="hero-box">
-    <h1>Smart GPS Safety Platform</h1>
-    <p>Protección en tiempo real para personas vulnerables</p>
+    <div class="hero-title">Smart GPS Safety Platform</div>
+    <div class="hero-sub">Protección en tiempo real para personas vulnerables</div>
 
     <div class="dashboard">
 
-      <aside class="sidebar">
+      <!-- SIDEBAR -->
+      <div class="sidebar">
         <div class="user-card">
           <strong>María González</strong>
-          <span>Adulto mayor • Ecuador</span>
+          <span class="log">Adulto mayor • Ecuador</span>
         </div>
 
-        <a class="active" onclick="showSection('gps', this)">Ubicación GPS</a>
-        <a onclick="showSection('history', this)">Historial</a>
-        <a onclick="showSection('settings', this)">Configuración</a>
-      </aside>
+        <div class="menu">
+          <a class="active" onclick="showSection('gps',this)">Ubicación GPS</a>
+          <a onclick="showSection('historial',this)">Historial</a>
+          <a onclick="showSection('config',this)">Configuración</a>
+        </div>
+      </div>
 
-      <main class="main">
+      <!-- MAIN -->
+      <div class="main">
         <div class="status">
           <h2>Estado del sistema</h2>
           <span id="systemStatus">PROTEGIDO</span>
         </div>
 
-        <section id="gps" class="section">
+        <div id="gps" class="section">
           <div class="grid">
             <div class="card">
               <h3>Ubicación en tiempo real</h3>
@@ -53,43 +61,18 @@
 
             <div class="card actions">
               <h3>Acciones</h3>
-              <button class="btn-primary" onclick="simulateMove()">Simular movimiento</button>
-              <button class="btn-success" onclick="safeZone()">Zona segura</button>
-              <button class="btn-danger" onclick="sendSOS()">Alerta SOS</button>
+              <button class="btn-move" onclick="simularMovimiento()">Simular movimiento</button>
+              <button class="btn-zone" onclick="zonaSegura()">Zona segura</button>
+              <button class="btn-alert" onclick="enviarAlerta()">Alerta SOS</button>
             </div>
           </div>
-        </section>
+        </div>
 
-        <section id="history" class="section hidden">
+        <div id="historial" class="section hidden">
           <div class="card">
             <h3>Historial</h3>
-            <div id="historyLog">Sin eventos registrados.</div>
+            <div id="historyLog" class="log">Sin eventos registrados.</div>
           </div>
-        </section>
+        </div>
 
-        <section id="settings" class="section hidden">
-          <div class="card">
-            <h3>Configuración</h3>
-            <p>Frecuencia GPS: 5s<br>Contacto emergencia: +593 99 999 9999</p>
-          </div>
-        </section>
-      </main>
-
-    </div>
-  </div>
-</section>
-
-<!-- MODAL -->
-<div id="modal" class="modal hidden">
-  <div class="modal-content">
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
-    <button onclick="closeModal()">Aceptar</button>
-  </div>
-</div>
-
-<!-- Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
-<script src="app.js"></script>
-</body>
-</html>
+        <div id="config" clas
